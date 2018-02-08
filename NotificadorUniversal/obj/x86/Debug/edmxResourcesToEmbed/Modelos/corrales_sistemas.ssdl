@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="corrales_sistemaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="corrales_sistemaModelStoreContainer">
+    <EntitySet Name="notificaciones" EntityType="corrales_sistemaModel.Store.notificaciones" store:Type="Tables" Schema="corrales_sistema" />
+    <EntitySet Name="ordenes_empresas" EntityType="corrales_sistemaModel.Store.ordenes_empresas" store:Type="Tables" Schema="corrales_sistema" />
+    <EntitySet Name="programa" EntityType="corrales_sistemaModel.Store.programa" store:Type="Tables" Schema="corrales_sistema" />
+    <EntitySet Name="usuarios" EntityType="corrales_sistemaModel.Store.usuarios" store:Type="Tables" Schema="corrales_sistema" />
+    <AssociationSet Name="FK_USUARIOS_EMPRESA" Association="corrales_sistemaModel.Store.FK_USUARIOS_EMPRESA">
+      <End Role="ordenes_empresas" EntitySet="ordenes_empresas" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_JEFE" Association="corrales_sistemaModel.Store.FK_USUARIOS_JEFE">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="usuarios1" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="notificaciones">
+    <Key>
+      <PropertyRef Name="idnotificacion" />
+    </Key>
+    <Property Name="idnotificacion" Type="int" Nullable="false" />
+    <Property Name="idusuario" Type="int" Nullable="false" />
+    <Property Name="idsucursal" Type="int" Nullable="false" />
+    <Property Name="notificacion" Type="varchar" Nullable="false" MaxLength="300" />
+    <Property Name="idprograma" Type="int" Nullable="false" />
+    <Property Name="msjtodos" Type="int" Nullable="false" />
+    <Property Name="estatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ordenes_empresas">
+    <Key>
+      <PropertyRef Name="idempresa" />
+    </Key>
+    <Property Name="idempresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombrecorto" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="nombreempresa" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="calle" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="numero" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="colonia" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ciudad" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="estado" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="pais" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="cp" Type="int" />
+    <Property Name="rfc" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="telefono" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="direccionlocal" Type="varchar" MaxLength="255" />
+    <Property Name="direccionexterna" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="programa">
+    <Key>
+      <PropertyRef Name="idprograma" />
+    </Key>
+    <Property Name="idprograma" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" MaxLength="255" />
+    <Property Name="carpeta" Type="varchar" MaxLength="255" />
+    <Property Name="icono" Type="enum" />
+    <Property Name="ensucursal" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="liganotificacion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="clave" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="fechanacimiento" Type="date" Nullable="false" />
+    <Property Name="puesto" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="jefeinmediato" Type="int" Nullable="false" />
+    <Property Name="correobase" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="fecharegistro" Type="datetime" Nullable="false" />
+    <Property Name="acceso" Type="int" Nullable="false" />
+    <Property Name="idempresa" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="fechaultimoacceso" Type="datetime" Nullable="false" />
+    <Property Name="jefe" Type="int" />
+  </EntityType>
+  <Association Name="FK_USUARIOS_EMPRESA">
+    <End Role="ordenes_empresas" Type="corrales_sistemaModel.Store.ordenes_empresas" Multiplicity="1" />
+    <End Role="usuarios" Type="corrales_sistemaModel.Store.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ordenes_empresas">
+        <PropertyRef Name="idempresa" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idempresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_JEFE">
+    <End Role="usuarios" Type="corrales_sistemaModel.Store.usuarios" Multiplicity="1" />
+    <End Role="usuarios1" Type="corrales_sistemaModel.Store.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="usuarios1">
+        <PropertyRef Name="jefeinmediato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

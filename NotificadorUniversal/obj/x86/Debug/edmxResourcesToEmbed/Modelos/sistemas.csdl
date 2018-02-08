@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="corrales_sistemasModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="corrales_sistemas" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="usuarios" EntityType="corrales_sistemasModel.usuarios" />
+    <AssociationSet Name="FK_USUARIOS_JEFE" Association="corrales_sistemasModel.FK_USUARIOS_JEFE">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="usuarios1" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="fechanacimiento" Type="DateTime" Nullable="false" />
+    <Property Name="puesto" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="jefeinmediato" Type="Int32" Nullable="false" />
+    <Property Name="correobase" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fecharegistro" Type="DateTime" Nullable="false" />
+    <Property Name="acceso" Type="Int32" Nullable="false" />
+    <Property Name="idempresa" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="fechaultimoacceso" Type="DateTime" Nullable="false" />
+    <Property Name="jefe" Type="Int32" />
+    <NavigationProperty Name="usuarios1" Relationship="corrales_sistemasModel.FK_USUARIOS_JEFE" FromRole="usuarios" ToRole="usuarios1" />
+    <NavigationProperty Name="usuarios2" Relationship="corrales_sistemasModel.FK_USUARIOS_JEFE" FromRole="usuarios1" ToRole="usuarios" />
+  </EntityType>
+  <Association Name="FK_USUARIOS_JEFE">
+    <End Role="usuarios" Type="corrales_sistemasModel.usuarios" Multiplicity="1" />
+    <End Role="usuarios1" Type="corrales_sistemasModel.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="usuarios1">
+        <PropertyRef Name="jefeinmediato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

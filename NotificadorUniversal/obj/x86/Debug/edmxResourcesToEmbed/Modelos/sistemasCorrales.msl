@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="corrales_sistemaModelStoreContainer" CdmEntityContainer="corrales_sistemaEntities">
+    <EntitySetMapping Name="ordenes_empresas">
+      <EntityTypeMapping TypeName="corrales_sistemaModel.ordenes_empresas">
+        <MappingFragment StoreEntitySet="ordenes_empresas">
+          <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+          <ScalarProperty Name="nombrecorto" ColumnName="nombrecorto" />
+          <ScalarProperty Name="nombreempresa" ColumnName="nombreempresa" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="direccionlocal" ColumnName="direccionlocal" />
+          <ScalarProperty Name="direccionexterna" ColumnName="direccionexterna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="corrales_sistemaModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechanacimiento" ColumnName="fechanacimiento" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="jefeinmediato" ColumnName="jefeinmediato" />
+          <ScalarProperty Name="correobase" ColumnName="correobase" />
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+          <ScalarProperty Name="acceso" ColumnName="acceso" />
+          <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="fechaultimoacceso" ColumnName="fechaultimoacceso" />
+          <ScalarProperty Name="jefe" ColumnName="jefe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="programa">
+      <EntityTypeMapping TypeName="corrales_sistemaModel.programa">
+        <MappingFragment StoreEntitySet="programa">
+          <ScalarProperty Name="liganotificacion" ColumnName="liganotificacion" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ensucursal" ColumnName="ensucursal" />
+          <ScalarProperty Name="icono" ColumnName="icono" />
+          <ScalarProperty Name="carpeta" ColumnName="carpeta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idprograma" ColumnName="idprograma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notificaciones">
+      <EntityTypeMapping TypeName="corrales_sistemaModel.notificaciones">
+        <MappingFragment StoreEntitySet="notificaciones">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="msjtodos" ColumnName="msjtodos" />
+          <ScalarProperty Name="idprograma" ColumnName="idprograma" />
+          <ScalarProperty Name="notificacion" ColumnName="notificacion" />
+          <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="idnotificacion" ColumnName="idnotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

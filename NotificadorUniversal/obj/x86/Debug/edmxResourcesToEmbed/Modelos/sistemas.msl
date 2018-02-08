@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="corrales_sistemasModelStoreContainer" CdmEntityContainer="corrales_sistemas">
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="corrales_sistemasModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechanacimiento" ColumnName="fechanacimiento" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="jefeinmediato" ColumnName="jefeinmediato" />
+          <ScalarProperty Name="correobase" ColumnName="correobase" />
+          <ScalarProperty Name="fecharegistro" ColumnName="fecharegistro" />
+          <ScalarProperty Name="acceso" ColumnName="acceso" />
+          <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="fechaultimoacceso" ColumnName="fechaultimoacceso" />
+          <ScalarProperty Name="jefe" ColumnName="jefe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

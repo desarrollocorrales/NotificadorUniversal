@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NotificadorUniversal.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="accesoConfig" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c4ffj0eq</Value>
+    </Setting>
+    <Setting Name="Servidor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">servidor</Value>
+    </Setting>
+    <Setting Name="Usuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)">usuario</Value>
+    </Setting>
+    <Setting Name="Contrasenia" Type="System.String" Scope="User">
+      <Value Profile="(Default)">contrasenias</Value>
+    </Setting>
+    <Setting Name="BaseDeDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">base de datos</Value>
+    </Setting>
+    <Setting Name="Segundos" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="idusuario" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="idsucursal" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

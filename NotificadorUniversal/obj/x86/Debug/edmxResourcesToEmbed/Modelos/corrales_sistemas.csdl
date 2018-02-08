@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="corrales_sistemaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="corrales_sistemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ordenes_empresas" EntityType="corrales_sistemaModel.ordenes_empresas" />
+    <EntitySet Name="programa" EntityType="corrales_sistemaModel.programa" />
+    <EntitySet Name="usuarios" EntityType="corrales_sistemaModel.usuarios" />
+    <AssociationSet Name="FK_USUARIOS_EMPRESA" Association="corrales_sistemaModel.FK_USUARIOS_EMPRESA">
+      <End Role="ordenes_empresas" EntitySet="ordenes_empresas" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOS_JEFE" Association="corrales_sistemaModel.FK_USUARIOS_JEFE">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="usuarios1" EntitySet="usuarios" />
+    </AssociationSet>
+    <EntitySet Name="notificaciones" EntityType="corrales_sistemaModel.notificaciones" />
+  </EntityContainer>
+  <EntityType Name="ordenes_empresas">
+    <Key>
+      <PropertyRef Name="idempresa" />
+    </Key>
+    <Property Name="idempresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrecorto" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="nombreempresa" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="calle" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="numero" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="colonia" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="ciudad" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="pais" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="cp" Type="Int32" />
+    <Property Name="rfc" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="telefono" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="direccionlocal" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="direccionexterna" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="usuarios" Relationship="corrales_sistemaModel.FK_USUARIOS_EMPRESA" FromRole="ordenes_empresas" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="programa">
+    <Key>
+      <PropertyRef Name="idprograma" />
+    </Key>
+    <Property Name="idprograma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="carpeta" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="icono" Type="String" MaxLength="65532" Unicode="false" FixedLength="false" />
+    <Property Name="ensucursal" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="liganotificacion" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="fechanacimiento" Type="DateTime" Nullable="false" />
+    <Property Name="puesto" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="jefeinmediato" Type="Int32" Nullable="false" />
+    <Property Name="correobase" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fecharegistro" Type="DateTime" Nullable="false" />
+    <Property Name="acceso" Type="Int32" Nullable="false" />
+    <Property Name="idempresa" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="fechaultimoacceso" Type="DateTime" Nullable="false" />
+    <Property Name="jefe" Type="Int32" />
+    <NavigationProperty Name="ordenes_empresas" Relationship="corrales_sistemaModel.FK_USUARIOS_EMPRESA" FromRole="usuarios" ToRole="ordenes_empresas" />
+    <NavigationProperty Name="usuarios1" Relationship="corrales_sistemaModel.FK_USUARIOS_JEFE" FromRole="usuarios" ToRole="usuarios1" />
+    <NavigationProperty Name="usuarios2" Relationship="corrales_sistemaModel.FK_USUARIOS_JEFE" FromRole="usuarios1" ToRole="usuarios" />
+  </EntityType>
+  <Association Name="FK_USUARIOS_EMPRESA">
+    <End Role="ordenes_empresas" Type="corrales_sistemaModel.ordenes_empresas" Multiplicity="1" />
+    <End Role="usuarios" Type="corrales_sistemaModel.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ordenes_empresas">
+        <PropertyRef Name="idempresa" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idempresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOS_JEFE">
+    <End Role="usuarios" Type="corrales_sistemaModel.usuarios" Multiplicity="1" />
+    <End Role="usuarios1" Type="corrales_sistemaModel.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="usuarios1">
+        <PropertyRef Name="jefeinmediato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="notificaciones">
+    <Key>
+      <PropertyRef Name="idnotificacion" />
+    </Key>
+    <Property Type="Int32" Name="idnotificacion" Nullable="false" />
+    <Property Type="Int32" Name="idusuario" Nullable="false" />
+    <Property Type="Int32" Name="idsucursal" Nullable="false" />
+    <Property Type="String" Name="notificacion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="idprograma" Nullable="false" />
+    <Property Type="Int32" Name="msjtodos" Nullable="false" />
+    <Property Type="Int32" Name="estatus" Nullable="false" />
+  </EntityType>
+</Schema>

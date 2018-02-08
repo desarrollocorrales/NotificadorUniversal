@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificadorUniversal", "NotificadorUniversal.csproj", "{B3AFF335-7B0B-47F4-9058-59933F32F24E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupNotificadorUniversal", "..\SetupNotificadorUniversal\SetupNotificadorUniversal.vdproj", "{1D664A75-F7AE-4851-9509-4470C33CCFC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3AFF335-7B0B-47F4-9058-59933F32F24E}.Debug|x86.ActiveCfg = Debug|x86
+		{B3AFF335-7B0B-47F4-9058-59933F32F24E}.Debug|x86.Build.0 = Debug|x86
+		{B3AFF335-7B0B-47F4-9058-59933F32F24E}.Release|x86.ActiveCfg = Release|x86
+		{B3AFF335-7B0B-47F4-9058-59933F32F24E}.Release|x86.Build.0 = Release|x86
+		{1D664A75-F7AE-4851-9509-4470C33CCFC8}.Debug|x86.ActiveCfg = Debug
+		{1D664A75-F7AE-4851-9509-4470C33CCFC8}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
